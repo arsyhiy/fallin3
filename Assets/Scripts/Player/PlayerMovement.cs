@@ -1,38 +1,188 @@
+/*
+ * PlayerMovement.cs
+ *
+ * Отвечает только за:
+ * - движение игрока
+ * - прыжок
+ * - гравитацию
+ * - поворот игрока
+ * - поворот камеры
+ *
+ * Input получает через PlayerInputHandler
+ */
+
+
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace Unity.Player
 {
-    public float speed = 5f;
-    public float gravity = -9.81f;
-
-    private CharacterController controller;
-    private Vector3 velocity;
-
-    void Start()
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(PlayerInputHandler))]
+    public class PlayerMovement : MonoBehaviour
     {
-        controller = GetComponent<CharacterController>();
-    }
+        public CharacterController controller;
+        public Transform playerCamera;
 
-    void Update()
-    {
-        // Получаем ввод WASD
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        [Header("Movement")]
+        public float moveSpeed = 5f;
+        public float jumpHeight = 2f;
+        public float gravity = -20f;
 
-        // Направление движения
-        Vector3 move = transform.right * x + transform.forward * z;
 
-        // Движение игрока
-        controller.Move(move * speed * Time.deltaTime);
+        [Header("Look")]
+        public float rotationSpeed = 200f;
 
-        // Гравитация
-        if (controller.isGrounded && velocity.y < 0)
+
+        private PlayerInputHandler inputHandler;
+
+        private Vector3 velocity;
+
+        private float cameraPitch = 0f;
+
+
+        void Start()
         {
-            velocity.y = -2f;
+            controller = GetComponent<CharacterController>();
+            inputHandler = GetComponent<PlayerInputHandler>();
+
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
-        velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+
+        void Update()
+        {
+            Look();
+            Move();
+        }
+
+
+
+        void Look()
+        {
+            /*
+             * Получаем уже готовые значения
+             * от PlayerInputHandler
+             */
+
+
+            float mouseX =
+                inputHandler.GetLookInputsHorizontal();
+
+
+            float mouseY =
+                inputHandler.GetLookInputsVertical();
+
+
+
+            // вращаем тело игрока вправо/влево
+            transform.Rotate(
+                Vector3.up *
+                mouseX *
+                rotationSpeed *
+                Time.deltaTime
+            );
+
+
+
+            // вращаем камеру вверх/вниз
+
+            cameraPitch -= mouseY * rotationSpeed * Time.deltaTime;
+
+
+            cameraPitch =
+                Mathf.Clamp(
+                    cameraPitch,
+                    -90f,
+                    90f
+                );
+
+
+            playerCamera.localEulerAngles =
+                new Vector3(
+                    cameraPitch,
+                    0f,
+                    0f
+                );
+        }
+
+
+
+
+
+        void Move()
+        {
+
+            /*
+             * Получаем движение:
+             *
+             * WASD
+             *
+             * уже преобразовано в Vector3
+             */
+
+            Vector3 input =
+                inputHandler.GetMoveInput();
+
+
+
+            Vector3 move =
+                transform.TransformDirection(input);
+
+
+
+            controller.Move(
+                move *
+                moveSpeed *
+                Time.deltaTime
+            );
+
+
+
+
+            // проверка земли
+
+            if(controller.isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+
+
+
+
+            // прыжок
+
+            if(
+                inputHandler.GetJumpInputDown()
+                &&
+                controller.isGrounded
+            )
+            {
+                velocity.y =
+                    Mathf.Sqrt(
+                        jumpHeight *
+                        -2f *
+                        gravity
+                    );
+            }
+
+
+
+
+            // гравитация
+
+            velocity.y +=
+                gravity *
+                Time.deltaTime;
+
+
+
+            controller.Move(
+                velocity *
+                Time.deltaTime
+            );
+        }
     }
 }
