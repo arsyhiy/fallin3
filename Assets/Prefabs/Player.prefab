@@ -189,9 +189,9 @@ GameObject:
   - component: {fileID: 8832212842237868689}
   - component: {fileID: 8145551450219459416}
   - component: {fileID: 8724501336874804668}
-  - component: {fileID: 2964989294232946872}
-  - component: {fileID: 2980211079407855974}
-  - component: {fileID: 8076858127692967628}
+  - component: {fileID: 1431957136199150517}
+  - component: {fileID: 4537663581838886899}
+  - component: {fileID: 1740219682651156966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -272,7 +272,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!143 &2964989294232946872
+--- !u!143 &1431957136199150517
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,14 +290,14 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
-  m_Radius: 0.7
+  m_Height: 2
+  m_Radius: 0.49999997
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2980211079407855974
+--- !u!114 &4537663581838886899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,15 +306,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7997752939511422957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dabc8b30ebb0dd4c94be5c1ad4ac7ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 365e100a1a4d5f89abf574f03105554e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  LookSensitivity: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Player.PlayerInputHandler
+  LookSensitivity: 2
   speed: 5
   gravity: -9.81
   InvertYAxis: 0
   InvertXAxis: 0
---- !u!114 &8076858127692967628
+--- !u!114 &1740219682651156966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,12 +326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71de32fb3ccdbaf99aa90532849cd50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Player.PlayerMovement
-  controller: {fileID: 2964989294232946872}
+  controller: {fileID: 1431957136199150517}
   playerCamera: {fileID: 5757257898572435878}
   moveSpeed: 5
   jumpHeight: 2
   gravity: -20
-  mouseSensitivity: 2
+  rotationSpeed: 200
 --- !u!1 &9062992437115475867
 GameObject:
   m_ObjectHideFlags: 0

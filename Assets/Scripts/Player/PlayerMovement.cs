@@ -1,15 +1,8 @@
-/*
- * PlayerMovement.cs
- *
- * Отвечает только за:
- * - движение игрока
- * - прыжок
- * - гравитацию
- * - поворот игрока
- * - поворот камеры
- *
- * Input получает через PlayerInputHandler
- */
+/* PlayerMovement.cs: производим действия по нажатиям игрока
+
+проще говоря получаем инпут от InputPlayerHandler и делаем здесь
+
+*/
 
 
 using UnityEngine;
@@ -32,7 +25,6 @@ namespace Unity.Player
         [Header("Look")]
         public float rotationSpeed = 200f;
 
-
         private PlayerInputHandler inputHandler;
 
         private Vector3 velocity;
@@ -45,12 +37,9 @@ namespace Unity.Player
             controller = GetComponent<CharacterController>();
             inputHandler = GetComponent<PlayerInputHandler>();
 
-
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-
-
 
         void Update()
         {
@@ -58,24 +47,14 @@ namespace Unity.Player
             Move();
         }
 
-
-
         void Look()
         {
-            /*
-             * Получаем уже готовые значения
-             * от PlayerInputHandler
-             */
-
 
             float mouseX =
                 inputHandler.GetLookInputsHorizontal();
 
-
             float mouseY =
                 inputHandler.GetLookInputsVertical();
-
-
 
             // вращаем тело игрока вправо/влево
             transform.Rotate(
@@ -85,12 +64,9 @@ namespace Unity.Player
                 Time.deltaTime
             );
 
-
-
             // вращаем камеру вверх/вниз
 
             cameraPitch -= mouseY * rotationSpeed * Time.deltaTime;
-
 
             cameraPitch =
                 Mathf.Clamp(
@@ -98,7 +74,6 @@ namespace Unity.Player
                     -90f,
                     90f
                 );
-
 
             playerCamera.localEulerAngles =
                 new Vector3(
@@ -108,30 +83,14 @@ namespace Unity.Player
                 );
         }
 
-
-
-
-
         void Move()
         {
-
-            /*
-             * Получаем движение:
-             *
-             * WASD
-             *
-             * уже преобразовано в Vector3
-             */
 
             Vector3 input =
                 inputHandler.GetMoveInput();
 
-
-
             Vector3 move =
                 transform.TransformDirection(input);
-
-
 
             controller.Move(
                 move *
@@ -140,17 +99,12 @@ namespace Unity.Player
             );
 
 
-
-
             // проверка земли
 
             if(controller.isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
             }
-
-
-
 
             // прыжок
 
@@ -168,16 +122,11 @@ namespace Unity.Player
                     );
             }
 
-
-
-
             // гравитация
 
             velocity.y +=
                 gravity *
                 Time.deltaTime;
-
-
 
             controller.Move(
                 velocity *
