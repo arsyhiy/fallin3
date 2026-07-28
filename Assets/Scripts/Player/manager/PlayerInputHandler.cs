@@ -35,6 +35,10 @@ namespace Unity.Player
         private InputAction m_JumpAction;
         private InputAction m_SprintAction;
         private InputAction m_CrouchAction;
+        private InputAction m_FireAction;
+        private InputAction m_AimAction;
+        private InputAction m_ReloadAction;
+        private InputAction m_SwitchWeaponAction;
 
         void Start()
         {
@@ -55,12 +59,20 @@ namespace Unity.Player
             m_JumpAction = InputSystem.actions.FindAction("Player/Jump");
             m_SprintAction = InputSystem.actions.FindAction("Player/Sprint");
             m_CrouchAction = InputSystem.actions.FindAction("Player/Crouch");
-            
+            m_FireAction = InputSystem.actions.FindAction("Player/Fire");
+            m_AimAction = InputSystem.actions.FindAction("Player/Aim");
+            m_ReloadAction = InputSystem.actions.FindAction("Player/Reload");
+            m_SwitchWeaponAction = InputSystem.actions.FindAction("Player/SwitchWeapon");
+
             m_MoveAction.Enable();
             m_LookAction.Enable();
             m_JumpAction.Enable();
             m_SprintAction.Enable();
             m_CrouchAction.Enable();
+            m_FireAction.Enable();
+            m_AimAction.Enable();
+            m_ReloadAction.Enable();
+            m_SwitchWeaponAction.Enable();
         }
 
         public bool CanProcessInput()
@@ -88,14 +100,14 @@ namespace Unity.Player
         {
             if (!CanProcessInput())
                 return 0.0f;
-            
+
             float input = m_LookAction.ReadValue<Vector2>().x;
 
             if (InvertXAxis)
                 input *= -1;
 
             input *= LookSensitivity;
-            
+
             return input;
         }
 
@@ -103,14 +115,14 @@ namespace Unity.Player
         {
             if (!CanProcessInput())
                 return 0.0f;
-            
+
             float input = m_LookAction.ReadValue<Vector2>().y;
 
             if (InvertYAxis)
                 input *= -1;
 
             input *= LookSensitivity;
-            
+
             return input;
         }
 
@@ -164,6 +176,76 @@ namespace Unity.Player
 
             return false;
         }
+
+        public bool GetFireInputHeld()
+        {
+            if (CanProcessInput())
+            {
+                return m_FireAction.IsPressed();
+            }
+
+            return false;
+        }
+
+
+
+        public bool GetFireInputDown()
+        {
+            if (CanProcessInput())
+            {
+                return m_FireAction.WasPressedThisFrame();
+            }
+
+            return false;
+        }
+
+
+
+        public bool GetAimInputHeld()
+        {
+            if (CanProcessInput())
+            {
+                return m_AimAction.IsPressed();
+            }
+
+            return false;
+        }
+
+
+
+        public bool GetReloadInputDown()
+        {
+            if (CanProcessInput())
+            {
+                return m_ReloadAction.WasPressedThisFrame();
+            }
+
+            return false;
+        }
+
+
+
+        public int GetSwitchWeaponInput()
+        {
+            if (!CanProcessInput())
+                return 0;
+
+
+            float value =
+                m_SwitchWeaponAction.ReadValue<float>();
+
+
+            if (value > 0)
+                return 1;
+
+
+            if (value < 0)
+                return -1;
+
+
+            return 0;
+        }
+
 
     }
 }
