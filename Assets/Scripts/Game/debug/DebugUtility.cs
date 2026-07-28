@@ -1,3 +1,5 @@
+/* DebugUtility.cs: все для логирования debug информации*/
+
 using UnityEngine;
 
 namespace Unity.Game
@@ -54,4 +56,6 @@ namespace Unity.Game
 #endif
         }
     }
+
+    
 }

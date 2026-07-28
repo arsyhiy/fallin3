@@ -1,9 +1,8 @@
-/* PlayerMovement.cs: производим действия по нажатиям игрока
-
-проще говоря получаем инпут от InputPlayerHandler и делаем здесь
-
-*/
-
+// /* PlayerMovement.cs: производим действия по нажатиям игрока
+// 
+// проще говоря получаем инпут от InputPlayerHandler и делаем здесь
+// 
+// */
 
 using UnityEngine;
 
@@ -11,6 +10,7 @@ namespace Unity.Player
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInputHandler))]
+
     public class PlayerMovement : MonoBehaviour
     {
         public CharacterController controller;
@@ -21,16 +21,18 @@ namespace Unity.Player
         public float jumpHeight = 2f;
         public float gravity = -20f;
 
-
         [Header("Look")]
-        public float rotationSpeed = 200f;
+        public float rotationSpeed = 200f; 
 
         private PlayerInputHandler inputHandler;
 
         private Vector3 velocity;
-
-        private float cameraPitch = 0f;
-
+        private float cameraPitch;
+        
+        [Header("Crouch")]
+        public float normalHeight = 2f;
+        public float crouchHeight = 1f;
+        public float crouchSpeed = 2f;
 
         void Start()
         {
@@ -45,18 +47,42 @@ namespace Unity.Player
         {
             Look();
             Move();
+            Crouch();
         }
+
+        // utility functions
+        
+        void DebugInput()
+        {
+            if (inputHandler.GetJumpInputDown())
+            {
+                Debug.Log("Jump");
+            }
+
+            Vector3 move = inputHandler.GetMoveInput();
+
+            if (move != Vector3.zero)
+            {
+                Debug.Log("Move: " + move);
+            }
+
+            float mouseX = inputHandler.GetLookInputsHorizontal();
+            float mouseY = inputHandler.GetLookInputsVertical();
+
+            if (mouseX != 0 || mouseY != 0)
+            {
+                Debug.Log($"Mouse: {mouseX} {mouseY}");
+            }
+        }
+        
 
         void Look()
         {
+            float mouseX = inputHandler.GetLookInputsHorizontal();
+            float mouseY = inputHandler.GetLookInputsVertical();
 
-            float mouseX =
-                inputHandler.GetLookInputsHorizontal();
 
-            float mouseY =
-                inputHandler.GetLookInputsVertical();
-
-            // вращаем тело игрока вправо/влево
+            // вращение тела игрока
             transform.Rotate(
                 Vector3.up *
                 mouseX *
@@ -64,51 +90,56 @@ namespace Unity.Player
                 Time.deltaTime
             );
 
-            // вращаем камеру вверх/вниз
 
-            cameraPitch -= mouseY * rotationSpeed * Time.deltaTime;
+            // вращение камеры
 
-            cameraPitch =
-                Mathf.Clamp(
-                    cameraPitch,
-                    -90f,
-                    90f
-                );
+            cameraPitch -=
+                mouseY *
+                rotationSpeed *
+                Time.deltaTime;
 
-            playerCamera.localEulerAngles =
-                new Vector3(
+
+            cameraPitch = Mathf.Clamp(
+                cameraPitch,
+                -90f,
+                90f
+            );
+
+
+            playerCamera.localRotation =
+                Quaternion.Euler(
                     cameraPitch,
                     0f,
                     0f
                 );
         }
 
+
         void Move()
         {
+            // движение вперед/назад/влево/вправо
 
             Vector3 input =
                 inputHandler.GetMoveInput();
 
+
             Vector3 move =
                 transform.TransformDirection(input);
 
-            controller.Move(
-                move *
-                moveSpeed *
-                Time.deltaTime
-            );
 
+            Vector3 finalMove =
+                move * moveSpeed;
 
             // проверка земли
 
-            if(controller.isGrounded && velocity.y < 0)
+            if (controller.isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
             }
 
             // прыжок
 
-            if(
+            if (
                 inputHandler.GetJumpInputDown()
                 &&
                 controller.isGrounded
@@ -124,14 +155,29 @@ namespace Unity.Player
 
             // гравитация
 
-            velocity.y +=
-                gravity *
-                Time.deltaTime;
+            velocity.y += gravity * Time.deltaTime;
+
+            // объединяем горизонтальное и вертикальное движение
+
+            finalMove.y = velocity.y;
 
             controller.Move(
-                velocity *
-                Time.deltaTime
+                finalMove * Time.deltaTime
             );
+        }
+
+        void Crouch()
+        {
+            if(inputHandler.GetCrouchInput())
+            {
+                controller.height = crouchHeight;
+                moveSpeed = crouchSpeed;
+            }
+            else
+            {
+                controller.height = normalHeight;
+                moveSpeed = 5f;
+            }
         }
     }
 }

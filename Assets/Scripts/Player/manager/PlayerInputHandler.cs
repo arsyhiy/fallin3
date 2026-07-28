@@ -115,7 +115,6 @@ namespace Unity.Player
         }
 
         public bool GetJumpInputDown()
-        // TODO: проверить работоспособность
         {
             if (CanProcessInput())
             {
@@ -145,11 +144,22 @@ namespace Unity.Player
             return false;
         }
 
-        public bool GetCrouchInputDown()
+        // наверное оставлю как закоментированный если захочу переписать приседание
+        // public bool GetCrouchInputDown()
+        // {
+        //     if (CanProcessInput())
+        //     {
+        //         return m_CrouchAction.WasPressedThisFrame();
+        //     }
+        // 
+        //     return false;
+        // }
+
+        public bool GetCrouchInput()
         {
             if (CanProcessInput())
             {
-                return m_CrouchAction.WasPressedThisFrame();
+                return m_CrouchAction.IsPressed();
             }
 
             return false;
