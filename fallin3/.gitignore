@@ -1,0 +1,78 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Memory captures
+[Mm]emoryCaptures/
+
+# Crash reports
+[Cc]rashes/
+
+# Build output
+[Bb]uild/
+[Bb]uilds/
+
+# Asset store tools
+[Aa]ssets/AssetStoreTools*
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+
+# Unity generated solution files
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity cache
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
+*.sln.iml
+
+# Gradle (Android builds)
+.gradle/
+.gradle-cache/
+
+# Android generated files
+**/[Aa]ndroid/[Bb]uild/
+**/[Aa]ndroid/[Gg]radle/
+**/[Aa]ndroid/.cxx/
+
+# Package manager lock (optional)
+# Packages/packages-lock.json
+
+# Test artifacts
+TestResults/
+
+# Coverage
+[Cc]overage/
+
+# Logs
+*.log
+
+# Temporary files
+*.bak
+*.swp
+*.swo
