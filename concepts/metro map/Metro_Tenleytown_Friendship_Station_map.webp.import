@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jwucel52ti1u"
-path="res://.godot/imported/weapon_crosshair.png-836f0a751eabd866523ba51ffcd659e9.ctex"
+uid="uid://b8lg77gx62ndh"
+path="res://.godot/imported/Metro_Tenleytown_Friendship_Station_map.webp-a6f3d4f04953ec41a696bcd27e17c6b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/Scenes/Weapons/Images/weapon_crosshair.png"
-dest_files=["res://.godot/imported/weapon_crosshair.png-836f0a751eabd866523ba51ffcd659e9.ctex"]
+source_file="res://concepts/metro map/Metro_Tenleytown_Friendship_Station_map.webp"
+dest_files=["res://.godot/imported/Metro_Tenleytown_Friendship_Station_map.webp-a6f3d4f04953ec41a696bcd27e17c6b4.ctex"]
 
 [params]
 

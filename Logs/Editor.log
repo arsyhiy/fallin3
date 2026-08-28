@@ -1,0 +1,122 @@
+Unity Editor version:    6000.5.5f1 (d16e074b49fd)
+Branch:                  6000.5/staging
+Build type:              Release
+Batch mode:              NO
+System name:             Linux
+Distro version:          #1 SMP PREEMPT_DYNAMIC Wed Mar 25 18:23:49 UTC 2026
+Kernel version:          6.19.10-300.fc44.x86_64
+Architecture:            x86_64
+Window Protocol:         Wayland (XWayland)
+Available memory:        7728 MB
+Date:                    2026-08-28T13:34:58Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-popandopuloarseniy" at "2026-08-28T13:34:58.122169Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.18.1'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-popandopuloarseniy"
+[Licensing::IpcConnector] LicenseClient-popandopuloarseniy channel disconnected successfully.
+[Licensing::IpcConnector] Channel LicenseClient-popandopuloarseniy-6000.5.5 doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 12458)
+Selected window backend: (null) 
+Desktop is 3840 x 3888 @ 60 Hz
+Initialize udev device monitor.
+
+COMMAND LINE ARGUMENTS:
+/home/popandopuloarseniy/Unity/Hub/Editor/6000.5.5f1/Editor/Unity
+-projectpath
+/home/popandopuloarseniy/fallin3
+-acceptSoftwareTermsForThisRunOnly
+-useHub
+-hubIPC
+-cloudEnvironment
+production
+-licensingIpc
+LicenseClient-popandopuloarseniy
+-hubSessionId
+cc137bea-b8a9-4f6b-81dd-c01cbdbb3554
+-accessToken
+zp9Sfya6bZxhmSwzttvORcP7BFmQVamT9VdDDcgmYrw009f
+Successfully changed project path to: /home/popandopuloarseniy/fallin3
+/home/popandopuloarseniy/.var/app/com.valvesoftware.Steam/fallin3
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-main-allocator-mimalloc-enabled=0"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Player connection [139938151009664]  Target information:
+
+Player connection [139938151009664]  * "[IP] 192.168.0.108 [Port] 55504 [Flags] 2 [Guid] 2982550300 [EditorId] 2982550300 [Version] 1048832 [Id] LinuxEditor(16,172.18.0.1) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139938151009664]  * "[IP] 172.17.0.1 [Port] 55504 [Flags] 2 [Guid] 2982550300 [EditorId] 2982550300 [Version] 1048832 [Id] LinuxEditor(16,172.18.0.1) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139938151009664]  * "[IP] 172.19.0.1 [Port] 55504 [Flags] 2 [Guid] 2982550300 [EditorId] 2982550300 [Version] 1048832 [Id] LinuxEditor(16,172.18.0.1) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139938151009664]  * "[IP] 172.18.0.1 [Port] 55504 [Flags] 2 [Guid] 2982550300 [EditorId] 2982550300 [Version] 1048832 [Id] LinuxEditor(16,172.18.0.1) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139938151009664] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [139938151009664] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-popandopuloarseniy-6000.5.5" at "2026-08-28T13:34:58.717357Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              810e90bbe1fa44b7927319fd21b0bdfd
+  Correlation Id:          c2d983ebbb13f9b940620fe103c1b314
+  External correlation Id: 4663792580972092954
+  Machine Id:              YZLr95TMuaIu1FucYwKNHTxttls=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-popandopuloarseniy-6000.5.5" (connect: 0.58s, validation: 0.29s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-popandopuloarseniy-6000.5.5-notifications" at "2026-08-28T13:34:59.006188Z"
+[Licensing::Module] Connected to LicensingClient (PId: 12458, launch time: 0.00, total connection time: 0.87s)
+[Licensing::Client] Successfully updated the access token
+[Licensing::Module] Successfully updated the access token zp9Sfya6bZ...
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 10171639619670-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.03
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 1.08s
+[Package Manager] Connected to IPC stream "Upm-12448" after 0.5 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+Rebuilding Library because the asset database could not be found!
+
+SDL leaked 2 allocations
+Turn on UNITY_SDL_ALLOCATION_TRACKING for detailed information.

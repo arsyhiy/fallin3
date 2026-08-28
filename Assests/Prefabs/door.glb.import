@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d30wl52ga0np2"
-path="res://.godot/imported/Weapons.fbx-74a4666d6e2d12d128b0a113511f7f7a.scn"
+uid="uid://bynjrk8n7hmsx"
+path="res://.godot/imported/door.glb-bfd4812080edc42eb05d95eae6d6af5b.scn"
 
 [deps]
 
-source_file="res://Assests/Scenes/Weapons/Models/Weapons/Weapons.fbx"
-dest_files=["res://.godot/imported/Weapons.fbx-74a4666d6e2d12d128b0a113511f7f7a.scn"]
+source_file="res://Assests/Prefabs/door.glb"
+dest_files=["res://.godot/imported/door.glb-bfd4812080edc42eb05d95eae6d6af5b.scn"]
 
 [params]
 
@@ -32,7 +32,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -40,7 +40,6 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1
+gltf/texture_map_mode=1
